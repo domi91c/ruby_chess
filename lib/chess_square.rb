@@ -18,12 +18,16 @@ class ChessSquare
     draw_piece
   end
 
+  def name
+    "#{file}#{rank}".to_sym
+  end
+
   private
 
   def draw_square
     hex_value = colour == :light ? "#f6f8e1" : "#e7a98e"
 
-    @rendered_square = Square.new(
+    Square.new(
       x: SQUARE_SIZE * FILES.index(file), y: SQUARE_SIZE * RANKS.index(rank),
       size: SQUARE_SIZE,
       color: hex_value,
