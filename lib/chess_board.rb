@@ -4,10 +4,14 @@ require "ruby2d"
 require "chess_square"
 require "board_info"
 
-class Board
+class ChessBoard
   include BoardInfo
 
   attr_accessor :squares
+
+  def [](name)
+    @squares.find { |square| square.name == name }
+  end
 
   def initialize()
     @squares = []
