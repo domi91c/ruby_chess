@@ -2,15 +2,12 @@ module BoardInfo
   SQUARE_SIZE = 125
   MARGIN = 20
 
-  FILES = %w(a b c d e f g h)
+  FILES = %w[a b c d e f g h].freeze
   RANKS = [1, 2, 3, 4, 5, 6, 7, 8].reverse
-  ALGEBRAIC_NOTATION = FILES.map do |file|
-    RANKS.map do |rank|
-      "#{file}#{rank}".to_sym
-    end
-  end
+  ALGEBRAIC_NOTATION =
+    FILES.map { |file| RANKS.map { |rank| "#{file}#{rank}".to_sym } }
 
-  PIECES = {
+  PIECE_IMAGES = {
     R: "assets/w_rook.png",
     N: "assets/w_knight.png",
     B: "assets/w_bishop.png",
@@ -23,7 +20,7 @@ module BoardInfo
     k: "assets/b_king.png",
     q: "assets/b_queen.png",
     p: "assets/b_pawn.png",
-  }
+  }.freeze
 
   SELECTED_PIECES = {
     R: "assets/w_rook_shadow.png",
@@ -38,5 +35,5 @@ module BoardInfo
     k: "assets/b_king_shadow.png",
     q: "assets/b_queen_shadow.png",
     p: "assets/b_pawn_shadow.png",
-  }
+  }.freeze
 end
